@@ -1,5 +1,6 @@
 import alpaca_trade_api as alpaca
 import matplotlib.pyplot as plt
+from datetime import date
 
 api = alpaca.REST('PKJ7TUUMCUZ7PDY2PRTJ', 'jfFmk7yr6OdfeM5Px2CoYtcQxx6BQvJ7H2h52f1L', 'https://paper-api.alpaca.markets')
 
@@ -35,6 +36,8 @@ gain_pie = fig.add_subplot(122)
 gain_pie.pie(gain_sizes, labels = gain_labels, shadow = True, startangle = 90)
 gain_pie.axis('equal')
 plt.title("Pie Chart showing percentages of gain by asset")
+txt = str(date.today())
+plt.figtext(0.5,0.01,txt,wrap=True,horizontalalignment='center',fontsize=12)
 plt.tight_layout()
 plt.show()
 
